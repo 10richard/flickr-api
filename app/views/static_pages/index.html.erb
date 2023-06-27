@@ -1,5 +1,4 @@
 <h1>Enter ID of a user to display photos from their feed</h1>
-<%# 198608882@N02 %>
 
 <%= form_with method: :get do |f| %>
     <%= f.label :user_id, 'UserID' %>
@@ -8,9 +7,10 @@
     <%= f.submit 'Search for Photos'%>
 <% end %>
 
-<%= unless @photos.nil? %>
-    <h1></h1>
-    <% @photos.each %>
-        <%=  %>
+<%= flash[:error] if flash[:error] %>
+
+<% unless @photos.nil? %>
+    <% @photos.each do |p| %>
+        <%= link_to(image_tag(Flickr.url_q(p)), Flickr.url_photopage(p)) %>
     <% end %>
 <% end %>
