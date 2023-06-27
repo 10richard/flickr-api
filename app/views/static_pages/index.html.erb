@@ -1,0 +1,16 @@
+<h1>Enter ID of a user to display photos from their feed</h1>
+<%# 198608882@N02 %>
+
+<%= form_with method: :get do |f| %>
+    <%= f.label :user_id, 'UserID' %>
+    <%= f.text_field :user_id %>
+
+    <%= f.submit 'Search for Photos'%>
+<% end %>
+
+<%= unless @photos.nil? %>
+    <h1></h1>
+    <% @photos.each %>
+        <%=  %>
+    <% end %>
+<% end %>
